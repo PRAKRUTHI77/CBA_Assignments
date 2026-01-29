@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="text">This is a toggle paragraph</p>
+<button onclick="toggleText()">Toggle Paragraph</button>
+
+<script>
+function toggleText() {
+  let p = document.getElementById("text");
+  p.style.display = (p.style.display === "none") ? "block" : "none";
+}
+</script>
+
+</body>
+</html>

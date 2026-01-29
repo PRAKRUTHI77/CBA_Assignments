@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="number" id="price" placeholder="Enter Price">
+<button onclick="calculateSale()">Get Half Price</button>
+
+<p id="salePrice"></p>
+
+<script>
+function calculateSale() {
+  let p = document.getElementById("price").value;
+  
+  document.getElementById("salePrice").innerText = p / 2;
+}
+</script>
+
+</body>
+</html>

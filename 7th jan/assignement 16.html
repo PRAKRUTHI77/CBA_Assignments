@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="showDays()">Show Days</button>
+<ul id="dayList"></ul>
+
+<script>
+function showDays() {
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  let list = document.getElementById("dayList");
+  for (let i = 0; i < days.length; i++) {
+    let item = document.createElement("li");
+    item.innerText = days[i];
+    list.appendChild(item);
+  }
+}
+</script>
+
+</body>
+</html>

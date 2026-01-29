@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Student Registration</h2>
+  <form onsubmit="return validate(event)">
+    <input type="text" id="name" placeholder="Name (Min 3 chars)"><br><br>
+    <input type="text" id="email" placeholder="Email"><br><br>
+    <input type="text" id="roll" placeholder="Roll No (STU-1234)"><br><br>
+    <input type="text" id="mobile" placeholder="Mobile (10 digits)"><br><br>
+    <input type="text" id="dob" placeholder="DOB (DD-MM-YYYY)"><br><br>
+    
+    Gender: 
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female<br><br>
+    
+    Courses:
+    <input type="checkbox" class="course"> HTML
+    <input type="checkbox" class="course"> CSS
+    <input type="checkbox" class="course"> JS<br><br>
+    
+    <select id="mode">
+      <option value="">Select Mode</option>
+      <option>Online</option>
+      <option>Offline</option>
+    </select><br><br>
+
+    <button type="submit">Register</button>
+  </form>
+
+<script>
+function validate(e) {
+  e.preventDefault();
+  
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let roll = document.getElementById("roll").value;
+  let mobile = document.getElementById("mobile").value;
+  let dob = document.getElementById("dob").value;
+  let mode = document.getElementById("mode").value;
+  
+  let gender = document.querySelector('input[name="gender"]:checked');
+  let courses = document.querySelectorAll('.course:checked');
+
+  // Regex Patterns
+  let namePat = /^[a-zA-Z\s]{3,}$/;
+  let emailPat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let rollPat = /^STU-\d{4}$/;
+  let mobilePat = /^[6-9]\d{9}$/;
+  let dobPat = /^\d{2}-\d{2}-\d{4}$/;
+
+  if (!namePat.test(name)) return alert("Invalid Name");
+  if (!emailPat.test(email)) return alert("Invalid Email");
+  if (!rollPat.test(roll)) return alert("Invalid Roll No (Format: STU-1234)");
+  if (!mobilePat.test(mobile)) return alert("Invalid Mobile Number");
+  if (!dobPat.test(dob)) return alert("Invalid DOB (Format: DD-MM-YYYY)");
+  if (!gender) return alert("Select Gender");
+  if (courses.length === 0) return alert("Select at least one course");
+  if (mode === "") return alert("Select Course Mode");
+
+  alert("Registration Successful!");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Checkout Form</h2>
+  
+  <input type="text" id="cName" placeholder="Customer Name">
+  <span id="errName" style="color:red"></span><br><br>
+  
+  <input type="text" id="pin" placeholder="PIN Code (6 digits)">
+  <span id="errPin" style="color:red"></span><br><br>
+  
+  <textarea id="address" placeholder="Address (Min 10 chars)"></textarea>
+  <span id="errAddr" style="color:red"></span><br><br>
+  
+  <input type="checkbox" id="terms"> Accept Terms & Conditions<br><br>
+  
+  <button onclick="validateCheckout()">Place Order</button>
+
+<script>
+function validateCheckout() {
+  let name = document.getElementById("cName").value;
+  let pin = document.getElementById("pin").value;
+  let address = document.getElementById("address").value;
+  let terms = document.getElementById("terms").checked;
+
+  // Clear previous errors
+  document.getElementById("errName").innerText = "";
+  document.getElementById("errPin").innerText = "";
+  document.getElementById("errAddr").innerText = "";
+
+  let isValid = true;
+
+  if (!/^[a-zA-Z\s]+$/.test(name)) {
+    document.getElementById("errName").innerText = "Invalid Name";
+    isValid = false;
+  }
+  
+  if (!/^\d{6}$/.test(pin)) {
+    document.getElementById("errPin").innerText = "Invalid PIN Code";
+    isValid = false;
+  }
+
+  if (address.length < 10) {
+    document.getElementById("errAddr").innerText = "Address too short";
+    isValid = false;
+  }
+
+  if (!terms) {
+    alert("Please accept terms");
+    isValid = false;
+  }
+
+  if (isValid) alert("Order Placed!");
+}
+</script>
+</body>
+</html>

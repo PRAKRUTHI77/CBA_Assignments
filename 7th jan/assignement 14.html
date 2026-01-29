@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="likes">0 Likes</h2>
+<button onclick="addLike()">Like This 👍</button>
+
+<script>
+let totalLikes = 0;
+
+function addLike() {
+  
+  totalLikes++; 
+  document.getElementById("likes").innerText = totalLikes + " Likes";
+}
+</script>
+
+</body>
+</html>

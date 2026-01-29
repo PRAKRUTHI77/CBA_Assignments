@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="number" id="a">
+<input type="number" id="b">
+
+<button onclick="add()">Add</button>
+<button onclick="subtract()">Subtract</button>
+
+<p id="result"></p>
+
+<script>
+function add() {
+  let x = Number(a.value);
+  let y = Number(b.value);
+  result.innerText = x + y;
+}
+
+function subtract() {
+  let x = Number(a.value);
+  let y = Number(b.value);
+  result.innerText = x - y;
+}
+</script>
+
+</body>
+</html>

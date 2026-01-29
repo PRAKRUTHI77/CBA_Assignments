@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="number" id="num1">
+<input type="number" id="num2">
+<button onclick="addNumbers()">Add Numbers</button>
+
+<p id="result"></p>
+
+<script>
+function addNumbers() {
+  let a = Number(document.getElementById("num1").value);
+  let b = Number(document.getElementById("num2").value);
+  document.getElementById("result").innerText = a + b;
+}
+</script>
+
+</body>
+</html>

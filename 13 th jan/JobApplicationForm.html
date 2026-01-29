@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Job Application</h2>
+  <form onsubmit="return validateJob(event)">
+    <input type="text" id="appName" placeholder="Applicant Name"><br><br>
+    <input type="text" id="appEmail" placeholder="Email"><br><br>
+    <input type="password" id="appPass" placeholder="Password"><br>
+    <small>(1 Uppercase, 1 Digit, Min 6 chars)</small><br><br>
+    
+    <input type="text" id="exp" placeholder="Experience (Years)"><br><br>
+    
+    <select id="role">
+      <option value="">Select Role</option>
+      <option>Developer</option>
+      <option>Designer</option>
+    </select><br><br>
+
+    <button type="submit">Apply</button>
+  </form>
+
+<script>
+function validateJob(e) {
+  e.preventDefault();
+
+  let pass = document.getElementById("appPass").value;
+  let exp = document.getElementById("exp").value;
+  let role = document.getElementById("role").value;
+
+  // Lookahead Regex for Password
+  let passPat = /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
+  let expPat = /^\d+$/;
+
+  if (!passPat.test(pass)) {
+    return alert("Password must have 1 Uppercase, 1 Digit, and be 6+ chars");
+  }
+
+  if (!expPat.test(exp)) return alert("Experience must be a number");
+  if (role === "") return alert("Please select a Job Role");
+
+  alert("Application Sent!");
+}
+</script>
+</body>
+</html>

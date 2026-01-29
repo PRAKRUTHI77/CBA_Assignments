@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Leave Application</h2>
+  <form onsubmit="return validateLeave(event)">
+    <input type="text" id="empName" placeholder="Employee Name"><br><br>
+    <input type="text" id="empID" placeholder="Emp ID (EMP-1001)"><br><br>
+    <input type="text" id="fromDate" placeholder="From (DD-MM-YYYY)"><br><br>
+    <input type="text" id="toDate" placeholder="To (DD-MM-YYYY)"><br><br>
+    
+    <textarea id="reason" placeholder="Reason (Min 10 chars)"></textarea><br><br>
+    
+    Leave Type: 
+    <input type="radio" name="lType" value="CL"> CL
+    <input type="radio" name="lType" value="SL"> SL<br><br>
+    
+    <input type="checkbox" id="approval"> Manager Approval Obtained<br><br>
+
+    <button type="submit">Submit Request</button>
+  </form>
+
+<script>
+function validateLeave(e) {
+  e.preventDefault();
+
+  let empName = document.getElementById("empName").value;
+  let empID = document.getElementById("empID").value;
+  let fromDate = document.getElementById("fromDate").value;
+  let toDate = document.getElementById("toDate").value;
+  let reason = document.getElementById("reason").value;
+  let approval = document.getElementById("approval").checked;
+
+  let empIDPat = /^EMP-\d{4}$/;
+  let datePat = /^\d{2}-\d{2}-\d{4}$/;
+
+  if (!/^[a-zA-Z]+$/.test(empName)) return alert("Invalid Name");
+  if (!empIDPat.test(empID)) return alert("Invalid Emp ID format");
+  if (!datePat.test(fromDate) || !datePat.test(toDate)) return alert("Invalid Date format");
+  if (reason.length < 10) return alert("Reason must be at least 10 chars");
+  if (!approval) return alert("Manager Approval is mandatory");
+
+  alert("Leave Applied Successfully");
+}
+</script>
+</body>
+</html>

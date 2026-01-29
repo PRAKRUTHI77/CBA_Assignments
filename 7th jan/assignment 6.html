@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="number" id="userNum" placeholder="Type a number">
+<button onclick="doubleIt()">Double It</button>
+
+<p id="answer"></p>
+
+<script>
+function doubleIt() {
+  let num = document.getElementById("userNum").value;
+  // Multiply by 2 and show the result
+  document.getElementById("answer").innerText = num * 2;
+}
+</script>
+
+</body>
+</html>
